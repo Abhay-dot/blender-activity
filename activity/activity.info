@@ -1,8 +1,8 @@
 [Activity]
 name = Blender
 activity_version = 12
-service_name = org.laptop.TerminalBlender
-exec = sugar-activity terminal.TerminalActivity
+service_name = org.laptop.Blender
+exec = sugar-activity activity.BlenderActivity
 icon = skel
 mime_types =
 license = GPLv2+
