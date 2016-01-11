@@ -112,14 +112,24 @@ class BlenderActivity(activity.Activity):
         self.show_all()
 
     def start_all(self, _activity):
-        bin_path = os.path.join(bundle_path, "bin", ARCH, "blender")
-        os.chmod(bin_path, 777);
+        if ARCH != "arm":
+            bin_path = os.path.join(bundle_path, "bin", ARCH, "blender")
 
-        argv = [
-            "/bin/bash",
-            "-c",
-            bin_path
-        ]
+            argv = [
+                "/bin/bash",
+                "-c",
+                bin_path
+            ]
+
+        else:
+            bin_path = os.path.join(bundle_path, "arm_alert.py")
+            argv = [
+                "/bin/bash",
+                "-c",
+                bin_path
+            ]
+
+        os.system("chmod +x %s" % bin_path)
 
         args = (Vte.PtyFlags.DEFAULT,
                 os.environ['HOME'],
