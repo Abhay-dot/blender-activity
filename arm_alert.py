@@ -9,7 +9,7 @@ secs = 10
 def show_message(message):
     # For python2 and python3
     try:
-        print message
+        print (message)
     except:
         print(message)
 
